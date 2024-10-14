@@ -1,0 +1,9 @@
+{% extends 'cofolio_app/base.html' %}
+{% block content %}
+<h2>Create New Post</h2>
+<form method="post">
+    {% csrf_token %}
+    <textarea name="content" rows="5" cols="60"></textarea><br>
+    <button type="submit">Post</button>
+</form>
+{% endblock %}

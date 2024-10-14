@@ -1,0 +1,15 @@
+{% extends 'cofolio_app/base.html' %}
+{% block content %}
+<h2>Posts</h2>
+{% if user.is_authenticated %}
+    <a href="{% url 'post_create' %}">Create New Post</a>
+{% endif %}
+<ul>
+    {% for post in posts %}
+        <li>
+            <a href="{% url 'post_detail' post.id %}">{{ post.author.username }}: {{ post.content|truncatechars:100 }}</a>
+            <p>Posted on {{ post.created_at }}</p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
